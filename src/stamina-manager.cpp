@@ -183,10 +183,10 @@ float StaminaCost::ManageAttackStamina(RE::Actor* a_actor, const RE::BGSAttackDa
     float attack_cost = CalculateAttackCost(a_actor);
     const auto weapon = ActorUtil::GetWieldingWeapon(a_actor);
 
+
     RE::HandleEntryPoint(ENTRIES::attackStamEP, a_actor, attack_cost, ENTRIES::attackStam, weapon);
 
-    // looks like i don't need to manually damage the value, the game applies
-    // the cost if returned
+    // RE::Actor* damaged_actor = Util::GetDamagedActorIfMount(a_actor);
     // damaged_actor->DamageActorValue(RE::ActorValue::kStamina, attack_cost);
     return attack_cost;
 }
