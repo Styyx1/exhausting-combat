@@ -3,6 +3,7 @@
 #include "SKSE/API.h"
 #include "Utility/util.h"
 #include "config.h"
+#include "hooks.h"
 
 void Listener(SKSE::MessagingInterface::Message* a_msg)
 {
@@ -21,6 +22,7 @@ SKSEPluginLoad(const SKSE::LoadInterface* a_skse)
 {
     SKSE::Init(a_skse);
     SKSE::AllocTrampoline(14 * 4);
+    EXCO::HOOKS::InstallHooks();
 
     EXCO::CONFIG::UpdateSettings(false);
     EXCO::SKSEMenu::RegisterSKSEMenu();

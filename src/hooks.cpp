@@ -177,12 +177,10 @@ void FireArrowHook::Call(RE::TESObjectWEAP* a_weapon, RE::TESObjectREFR* a_sourc
 }
 void InstallHooks()
 {
-
     HookUtils::WriteVFunc<RE::PlayerCharacter, 0, 0xad, PlayerUpdateHook>();
     HookUtils::WriteVFunc<RE::Character, 0, 0xad, NPCUpdateHook>();
     HookUtils::WriteVFunc<RE::ActorMagicCaster, 0, 0x06, StartCastingHook>();
     HookUtils::WriteVFunc<RE::ActorMagicCaster, 0, 0x1d, CasterUpdateHook>();
-
     HookUtils::WriteCall5<JumpGetScaleHook>(RELOCATION_ID(36271, 37257), OFFSET(0x190, 0x17f));
     HookUtils::WriteCall5<AttackStamCostHook>(RELOCATION_ID(37650, 38603), OFFSET(0x16e, 0x171));
     HookUtils::WriteCall5<AttackChance>(RELOCATION_ID(48139, 49170), OFFSET(0x2ae, 0x28d));
