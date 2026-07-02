@@ -18,6 +18,7 @@ void EXCO::MENU::SHARED::LoadFromConfig()
     npc_bow_draw_cost         = CONFIG::stamina_cost_bow_drain_npc.GetValue();
     npc_bow_shoot_cost        = CONFIG::stamina_cost_bow_npc.GetValue();
     npc_running_cost          = CONFIG::stamina_cost_running_npc.GetValue();
+    no_stam_exception         = CONFIG::exclude_no_stam_npc.GetValue();
     // player
     player_attack_cost           = CONFIG::stamina_cost_attack_player.GetValue();
     player_sprint_cost           = CONFIG::stamina_cost_sprint_player.GetValue();
@@ -57,6 +58,7 @@ void EXCO::MENU::SHARED::RestoreDefaults()
     player_bow_draw_cost         = 5.F;
     player_bow_shoot_cost        = 10.F;
     player_running_cost          = 1.F;
+    no_stam_exception            = false;
 
     // jump and horse sprint do not work for NPCs afaik.
     // TODO: test anim event for npc jump as replacer
@@ -72,6 +74,7 @@ void EXCO::MENU::SHARED::RestoreDefaults()
     CONFIG::stamina_cost_bow_drain_npc.SetValue(npc_bow_draw_cost);
     CONFIG::stamina_cost_bow_npc.SetValue(npc_bow_shoot_cost);
     CONFIG::stamina_cost_running_npc.SetValue(npc_running_cost);
+    CONFIG::exclude_no_stam_npc.SetValue(no_stam_exception);
     // player
     CONFIG::stamina_cost_attack_player.SetValue(player_attack_cost);
     CONFIG::stamina_cost_sprint_horse_player.SetValue(player_horseride_sprint_cost);

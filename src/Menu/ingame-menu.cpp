@@ -40,6 +40,8 @@ void FMenu::StaminaTool::DrawNPCs()
     FUCKUtil::GreenTitleText("Stamina for NPCs", 5);
     FUCK::Indent();
 
+    FUCKUtil::Checkbox(LAB::no_stam_exception.c_str(), VAR::no_stam_exception, CONFIG::exclude_no_stam_npc,
+                       TOOL::no_stam_exception.c_str());
     FUCKUtil::SliderFloat(LAB::npc_attack_cost.c_str(), VAR::npc_attack_cost, CONFIG::stamina_cost_attack_npc, 0.0,
                           50.0, TOOL::npc_attack_cost.c_str());
     FUCKUtil::SliderFloat(LAB::npc_sprint_cost.c_str(), VAR::npc_sprint_cost, CONFIG::stamina_cost_sprint_npc, 0.0,

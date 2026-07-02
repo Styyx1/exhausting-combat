@@ -36,7 +36,8 @@ inline std::string npc_horseride_sprint_cost = "Horse Riding Cost##npc";
 inline std::string npc_bow_draw_cost         = "Bow Drawing Cost##npc";
 inline std::string npc_bow_shoot_cost        = "Bow Shooting Cost##npc";
 
-inline std::string npc_running_cost = "Running Cost##npc";
+inline std::string npc_running_cost  = "Running Cost##npc";
+inline std::string no_stam_exception = "No Stamina Exception##npc";
 
 // Player
 inline std::string player_attack_cost           = "Attack Cost##player";
@@ -68,7 +69,9 @@ inline std::string npc_bow_draw_cost         = "Stamina cost for drawing a bow w
                                                "animation of crossbows!";
 inline std::string npc_bow_shoot_cost        = "Stamina cost for firing an arrow/bolt";
 
-inline std::string npc_running_cost = "Stamina cost for running";
+inline std::string npc_running_cost  = "Stamina cost for running";
+inline std::string no_stam_exception = "Allow NPCs with less stamina than the magicka cost of their spell to cast "
+                                       "without stamina cost (Some NPCs simply have 0 stamina in vanilla)";
 
 // Player
 inline std::string player_attack_cost           = "Stamina Cost for normal attacks";
@@ -110,6 +113,7 @@ inline float player_horseride_sprint_cost{};
 inline float player_bow_draw_cost{};
 inline float player_bow_shoot_cost{};
 inline float player_running_cost{};
+inline bool no_stam_exception{};
 } // namespace VAR
 
 } // namespace MENU

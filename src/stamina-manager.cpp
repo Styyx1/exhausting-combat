@@ -1,5 +1,6 @@
 #include "stamina-manager.h"
 
+#include "RE/A/ActorValues.h"
 #include "Utility/util.h"
 #include "config.h"
 #include "mod-data.h"
@@ -128,6 +129,12 @@ bool StaminaCost::ManageCastStamina(RE::ActorMagicCaster* a_caster)
     float stamina_cost = CalculateCastCost(a_caster, spell);
 
     RE::HandleEntryPoint(ENTRIES::castStamEP, actor, stamina_cost, ENTRIES::castStam, spell);
+
+    if (CONFIG::exclude_no_stam_npc.GetValue() && actor->GetActorValueMax(RE::ActorValue::kStamina) < stamina_cost)
+    {
+        return true;
+    }
+
     RE::Actor* damaged_actor = Util::GetDamagedActorIfMount(actor);
 
     damaged_actor->DamageActorValue(RE::ActorValue::kStamina, stamina_cost);
@@ -143,6 +150,8 @@ bool StaminaCost::ManageConcentrationStamina(RE::ActorMagicCaster* a_caster, flo
     {
         return true;
     }
+
+
     if (ActorUtil::CasterIsCastingObject(a_caster))
     {
         return true;
@@ -166,7 +175,13 @@ bool StaminaCost::ManageConcentrationStamina(RE::ActorMagicCaster* a_caster, flo
 
     float stamina_cost = CalculateCastCost(a_caster, spell) * a_deltaTime;
 
+
     RE::HandleEntryPoint(ENTRIES::castStamEP, actor, stamina_cost, ENTRIES::castStam, spell);
+
+    if (CONFIG::exclude_no_stam_npc.GetValue() && actor->GetActorValueMax(RE::ActorValue::kStamina) < stamina_cost)
+    {
+        return true;
+    }
 
     RE::Actor* damaged_actor = Util::GetDamagedActorIfMount(actor);
     damaged_actor->DamageActorValue(RE::ActorValue::kStamina, stamina_cost);
