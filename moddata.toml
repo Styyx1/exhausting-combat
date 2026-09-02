@@ -1,0 +1,8 @@
+name = "styyx-stamina-combat"
+description = "Add stamina cost to certain actions."
+modversion = "1.1.0"
+
+
+[configs]
+commonlib_toml = true
+use-fui = true

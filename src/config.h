@@ -1,5 +1,4 @@
 #pragma once
-#include "REX/REX/TOML.h"
 #include "mod-data.h"
 
 namespace EXCO::CONFIG

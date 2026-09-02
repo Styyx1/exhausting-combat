@@ -3,7 +3,9 @@
 #include "API/FUCK_API.h"
 #include "Menu/shared-menu.h"
 #include "config.h"
+#undef ERROR
 #include "st-fui.h"
+
 
 namespace EXCO
 {

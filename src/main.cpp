@@ -17,12 +17,9 @@ void Listener(SKSE::MessagingInterface::Message* a_msg)
     }
 }
 
-SKSEPluginLoad(const SKSE::LoadInterface* a_skse)
+SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
-    SKSE::Init(a_skse);
-    SKSE::AllocTrampoline(14 * 4);
-    EXCO::HOOKS::InstallHooks();
-
+    SKSE::Init(a_skse, {.trampoline = true});
     EXCO::CONFIG::UpdateSettings(false);
     SKSE::GetMessagingInterface()->RegisterListener(Listener);
 
