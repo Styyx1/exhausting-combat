@@ -11,3 +11,5 @@
 #include <styyx-utils.h>
 
 using namespace StyyxUtil;
+
+#undef ERROR

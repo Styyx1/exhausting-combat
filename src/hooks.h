@@ -37,7 +37,7 @@ struct StartCastingHook
 struct CasterUpdateHook
 {
     static void Call(RE::ActorMagicCaster* a_this, float a_deltaTime);
-    static inline REL::THookVFT func{RE::VTABLE_MagicCaster[0], 0x1d, Call};
+    static inline REL::THookVFT func{RE::VTABLE_ActorMagicCaster[0], 0x1d, Call};
 };
 
 struct AttackStamCostHook
